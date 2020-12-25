@@ -44,6 +44,11 @@ class ChatController: UICollectionViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+//        customInputView.isHidden = true
+        inputAccessoryView?.resignFirstResponder()
+        inputAccessoryView?.isHidden = true
+    }
     
     override var inputAccessoryView: UIView? {
         get {return customInputView}
