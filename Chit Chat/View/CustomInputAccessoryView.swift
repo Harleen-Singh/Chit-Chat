@@ -16,6 +16,7 @@ class CustomInputAccessoryView: UIView {
     // MARK: - Properties
     
     weak var delegate: CustomInputAccessoryViewDelegate?
+    var maxHeightConstraint: NSLayoutConstraint!
     
      let messageInputTextView: UITextView = {
         let tv = UITextView()
@@ -102,4 +103,5 @@ class CustomInputAccessoryView: UIView {
         
         placeholderLabel.isHidden = !self.messageInputTextView.text.isEmpty
     }
+
 }

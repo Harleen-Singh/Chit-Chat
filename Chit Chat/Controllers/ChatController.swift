@@ -14,10 +14,11 @@ class ChatController: UICollectionViewController {
     private let user: User
     private var messages = [Message]()
     var fromCurrentUser = false
-    
+    let maxHeightForTextView: CGFloat = 100
     private lazy var customInputView: CustomInputAccessoryView = {
         let iv = CustomInputAccessoryView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         iv.delegate = self
+        iv.messageInputTextView.delegate = self
         return iv
     }()
     
@@ -42,6 +43,21 @@ class ChatController: UICollectionViewController {
         
         messages = Service.readJson()
         
+        DispatchQueue.main.async {
+            let lastIndexPath = IndexPath(item: self.messages.count - 1, section: 0)
+            self.collectionView.scrollToItem(at: lastIndexPath, at: .centeredVertically, animated: false)
+        }
+//        collectionView.scrollToLast()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // force layout before scrolling to most recent
+        collectionView.layoutIfNeeded()
+        // now you can scroll however you want
+        // e.g. scroll to the right
+       
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,7 +77,7 @@ class ChatController: UICollectionViewController {
     
     //MARK: - Helpers
     func configureUI() {
-        
+        collectionView.alwaysBounceVertical = false
         collectionView.backgroundColor = .white
         configureNavigationBar(withTitle: user.name, prefersLargeTitles: false)
         collectionView.register(MessageCell.self, forCellWithReuseIdentifier: K.chatCellIdentifier)
@@ -89,9 +105,12 @@ extension ChatController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 50)
     }
+    
+    
 }
 
 extension ChatController: CustomInputAccessoryViewDelegate {
+    
     func inputView(_ inputView: CustomInputAccessoryView, wantsToSend message: String) {
         
         if inputView.messageInputTextView.text != "" {
@@ -100,8 +119,36 @@ extension ChatController: CustomInputAccessoryViewDelegate {
             collectionView.scrollToLast()
             inputView.messageInputTextView.text = nil
         }
-        
 
+    }
+    
+}
+
+extension ChatController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView == customInputView.messageInputTextView {
+            
+            adjustUITextViewHeight(arg: textView)
+        }
+    }
+    
+    
+    func adjustUITextViewHeight(arg : UITextView){
         
+        let numOfLines = Int(arg.contentSize.height / (arg.font?.lineHeight)!)
+        
+        if numOfLines < K.numberOfLinesForChatInputTextView {
+            
+            arg.translatesAutoresizingMaskIntoConstraints = true
+            arg.sizeToFit()
+            arg.frame.size.width = UIScreen.main.bounds.width - 66
+            
+        }
+        else{
+            
+            arg.isScrollEnabled = true
+            
+        }
     }
 }

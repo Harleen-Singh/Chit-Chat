@@ -11,5 +11,6 @@ struct K {
     static let conversationCellIdentifier = "ConversationCell"
     static let chatCellIdentifier = "ChatCell"
     static var user = ""
+    static let numberOfLinesForChatInputTextView = 4
     
 }
