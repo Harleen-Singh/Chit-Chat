@@ -13,6 +13,7 @@ class ChatController: UICollectionViewController {
     
     var offset = 1
     var firstTime = true
+    var scrollViewMinContentY: CGFloat = 0
     private let user: User
     private var messages = [Message]()
     var fromCurrentUser = false
@@ -44,7 +45,7 @@ class ChatController: UICollectionViewController {
         super.viewDidLoad()
         
         configureUI()
-        
+        print(collectionView.contentOffset)
         messages = Service.readJson(offset: offset)
         offset = offset + 1
         DispatchQueue.main.async {
@@ -111,10 +112,8 @@ extension ChatController {
     
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
-        
-        
-        if (scrollView.contentOffset.y == -92 && !firstTime && offset <= 10){
+       
+        if (scrollView.contentOffset.y == scrollViewMinContentY && !firstTime && offset <= 10){
             spinner.startAnimating()
             let oldMessages = Service.readJson(offset: self.offset)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -129,6 +128,7 @@ extension ChatController {
         }
 
         if firstTime {
+            scrollViewMinContentY = scrollView.contentOffset.y
             firstTime = false
         }
         
