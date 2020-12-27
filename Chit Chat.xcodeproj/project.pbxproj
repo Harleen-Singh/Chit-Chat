@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CDD80A052598F7BE0002C73D /* MessageResponse-2.json in Resources */ = {isa = PBXBuildFile; fileRef = CDD809FB2598DF620002C73D /* MessageResponse-2.json */; };
+		CDD80A072598F7C10002C73D /* MessageResponse-3.json in Resources */ = {isa = PBXBuildFile; fileRef = CDD809FC2598DF650002C73D /* MessageResponse-3.json */; };
+		CDD80A092598F7C40002C73D /* MessageResponse-4.json in Resources */ = {isa = PBXBuildFile; fileRef = CDD809FD2598DF670002C73D /* MessageResponse-4.json */; };
+		CDD80A0B2598F7C70002C73D /* MessageResponse-5.json in Resources */ = {isa = PBXBuildFile; fileRef = CDD809FE2598DF6A0002C73D /* MessageResponse-5.json */; };
+		CDD80A0D2598F7C90002C73D /* MessageResponse-6.json in Resources */ = {isa = PBXBuildFile; fileRef = CDD809FF2598DF6C0002C73D /* MessageResponse-6.json */; };
+		CDD80A0F2598F7CC0002C73D /* MessageResponse-7.json in Resources */ = {isa = PBXBuildFile; fileRef = CDD80A002598DF6E0002C73D /* MessageResponse-7.json */; };
+		CDD80A112598F7CE0002C73D /* MessageResponse-8.json in Resources */ = {isa = PBXBuildFile; fileRef = CDD80A012598DF760002C73D /* MessageResponse-8.json */; };
+		CDD80A132598F7D10002C73D /* MessageResponse-9.json in Resources */ = {isa = PBXBuildFile; fileRef = CDD80A022598DF780002C73D /* MessageResponse-9.json */; };
+		CDD80A152598F7D40002C73D /* MessageResponse-10.json in Resources */ = {isa = PBXBuildFile; fileRef = CDD80A032598DF800002C73D /* MessageResponse-10.json */; };
 		CDF8FD5125947371007C0885 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF8FD5025947371007C0885 /* AppDelegate.swift */; };
 		CDF8FD5325947371007C0885 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF8FD5225947371007C0885 /* SceneDelegate.swift */; };
 		CDF8FD5525947371007C0885 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF8FD5425947371007C0885 /* ViewController.swift */; };
@@ -23,11 +32,20 @@
 		CDF8FD832594E25F007C0885 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF8FD822594E25F007C0885 /* MessageCell.swift */; };
 		CDF8FD862594EC1B007C0885 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF8FD852594EC1B007C0885 /* Message.swift */; };
 		CDF8FD892594F086007C0885 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF8FD882594F086007C0885 /* MessageViewModel.swift */; };
-		CDF8FD8C259500DC007C0885 /* MessageResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = CDF8FD8B259500DC007C0885 /* MessageResponse.json */; };
+		CDF8FD8C259500DC007C0885 /* MessageResponse-1.json in Resources */ = {isa = PBXBuildFile; fileRef = CDF8FD8B259500DC007C0885 /* MessageResponse-1.json */; };
 		CDF8FD9025951FD8007C0885 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF8FD8F25951FD8007C0885 /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CDD809FB2598DF620002C73D /* MessageResponse-2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "MessageResponse-2.json"; sourceTree = "<group>"; };
+		CDD809FC2598DF650002C73D /* MessageResponse-3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "MessageResponse-3.json"; sourceTree = "<group>"; };
+		CDD809FD2598DF670002C73D /* MessageResponse-4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "MessageResponse-4.json"; sourceTree = "<group>"; };
+		CDD809FE2598DF6A0002C73D /* MessageResponse-5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "MessageResponse-5.json"; sourceTree = "<group>"; };
+		CDD809FF2598DF6C0002C73D /* MessageResponse-6.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "MessageResponse-6.json"; sourceTree = "<group>"; };
+		CDD80A002598DF6E0002C73D /* MessageResponse-7.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "MessageResponse-7.json"; sourceTree = "<group>"; };
+		CDD80A012598DF760002C73D /* MessageResponse-8.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "MessageResponse-8.json"; sourceTree = "<group>"; };
+		CDD80A022598DF780002C73D /* MessageResponse-9.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "MessageResponse-9.json"; sourceTree = "<group>"; };
+		CDD80A032598DF800002C73D /* MessageResponse-10.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "MessageResponse-10.json"; sourceTree = "<group>"; };
 		CDF8FD4D25947371007C0885 /* Chit Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chit Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF8FD5025947371007C0885 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDF8FD5225947371007C0885 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +64,7 @@
 		CDF8FD822594E25F007C0885 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		CDF8FD852594EC1B007C0885 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CDF8FD882594F086007C0885 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
-		CDF8FD8B259500DC007C0885 /* MessageResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MessageResponse.json; sourceTree = "<group>"; };
+		CDF8FD8B259500DC007C0885 /* MessageResponse-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "MessageResponse-1.json"; sourceTree = "<group>"; };
 		CDF8FD8F25951FD8007C0885 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,7 +127,16 @@
 		CDF8FD67259473CB007C0885 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				CDF8FD8B259500DC007C0885 /* MessageResponse.json */,
+				CDF8FD8B259500DC007C0885 /* MessageResponse-1.json */,
+				CDD809FB2598DF620002C73D /* MessageResponse-2.json */,
+				CDD809FC2598DF650002C73D /* MessageResponse-3.json */,
+				CDD809FD2598DF670002C73D /* MessageResponse-4.json */,
+				CDD809FE2598DF6A0002C73D /* MessageResponse-5.json */,
+				CDD809FF2598DF6C0002C73D /* MessageResponse-6.json */,
+				CDD80A002598DF6E0002C73D /* MessageResponse-7.json */,
+				CDD80A012598DF760002C73D /* MessageResponse-8.json */,
+				CDD80A022598DF780002C73D /* MessageResponse-9.json */,
+				CDD80A032598DF800002C73D /* MessageResponse-10.json */,
 				CDF8FD8F25951FD8007C0885 /* Service.swift */,
 			);
 			path = API;
@@ -208,10 +235,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDF8FD8C259500DC007C0885 /* MessageResponse.json in Resources */,
+				CDD80A072598F7C10002C73D /* MessageResponse-3.json in Resources */,
+				CDF8FD8C259500DC007C0885 /* MessageResponse-1.json in Resources */,
+				CDD80A0F2598F7CC0002C73D /* MessageResponse-7.json in Resources */,
+				CDD80A112598F7CE0002C73D /* MessageResponse-8.json in Resources */,
 				CDF8FD5D25947372007C0885 /* LaunchScreen.storyboard in Resources */,
+				CDD80A0D2598F7C90002C73D /* MessageResponse-6.json in Resources */,
 				CDF8FD5A25947372007C0885 /* Assets.xcassets in Resources */,
+				CDD80A0B2598F7C70002C73D /* MessageResponse-5.json in Resources */,
+				CDD80A132598F7D10002C73D /* MessageResponse-9.json in Resources */,
+				CDD80A092598F7C40002C73D /* MessageResponse-4.json in Resources */,
 				CDF8FD5825947371007C0885 /* Main.storyboard in Resources */,
+				CDD80A052598F7BE0002C73D /* MessageResponse-2.json in Resources */,
+				CDD80A152598F7D40002C73D /* MessageResponse-10.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,5 +12,5 @@ struct K {
     static let chatCellIdentifier = "ChatCell"
     static var user = ""
     static let numberOfLinesForChatInputTextView = 4
-    
+    static let fileName = "MessageResponse"
 }

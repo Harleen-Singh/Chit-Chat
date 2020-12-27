@@ -11,6 +11,8 @@ class ChatController: UICollectionViewController {
     
     //MARK: - Properties
     
+    var offset = 1
+    var firstTime = true
     private let user: User
     private var messages = [Message]()
     var fromCurrentUser = false
@@ -21,6 +23,8 @@ class ChatController: UICollectionViewController {
         iv.messageInputTextView.delegate = self
         return iv
     }()
+    
+    let spinner = UIActivityIndicatorView(style: .medium)
     
     //MARK: - Lifecycle
     
@@ -41,8 +45,8 @@ class ChatController: UICollectionViewController {
         
         configureUI()
         
-        messages = Service.readJson()
-        
+        messages = Service.readJson(offset: offset)
+        offset = offset + 1
         DispatchQueue.main.async {
             let lastIndexPath = IndexPath(item: self.messages.count - 1, section: 0)
             self.collectionView.scrollToItem(at: lastIndexPath, at: .centeredVertically, animated: false)
@@ -78,10 +82,18 @@ class ChatController: UICollectionViewController {
     //MARK: - Helpers
     func configureUI() {
         collectionView.alwaysBounceVertical = false
+        collectionView.alwaysBounceHorizontal = false
+        collectionView.bounces = false
         collectionView.backgroundColor = .white
         configureNavigationBar(withTitle: user.name, prefersLargeTitles: false)
         collectionView.register(MessageCell.self, forCellWithReuseIdentifier: K.chatCellIdentifier)
-        collectionView.alwaysBounceVertical = true
+        
+        
+        spinner.color = UIColor.systemBlue
+//        spinner.startAnimating()
+        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: collectionView.bounds.width, height: CGFloat(44))
+        collectionView.addSubview(spinner)
+        
     }
 }
 
@@ -92,8 +104,36 @@ extension ChatController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.chatCellIdentifier, for: indexPath) as! MessageCell
         cell.message = messages[indexPath.row]
+        
         return cell
     }
+    
+    
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset.y)
+        
+        
+        if (scrollView.contentOffset.y == -92 && !firstTime && offset <= 10){
+            spinner.startAnimating()
+            let oldMessages = Service.readJson(offset: self.offset)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                
+                self.offset = self.offset + 1
+                self.messages.insert(contentsOf: oldMessages, at: 0)
+                self.collectionView.reloadData()
+                self.collectionView.scrollToItem(at: IndexPath(row: 21, section: 0), at: UICollectionView.ScrollPosition.centeredVertically, animated: false)
+                self.spinner.stopAnimating()
+            }
+            
+        }
+
+        if firstTime {
+            firstTime = false
+        }
+        
+    }
+    
 }
 
 extension ChatController: UICollectionViewDelegateFlowLayout {
@@ -118,6 +158,7 @@ extension ChatController: CustomInputAccessoryViewDelegate {
             collectionView.reloadData()
             collectionView.scrollToLast()
             inputView.messageInputTextView.text = nil
+            adjustUITextViewHeight(arg: inputView.messageInputTextView)
         }
 
     }
@@ -133,6 +174,9 @@ extension ChatController: UITextViewDelegate {
         }
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        collectionView.scrollToLast()
+    }
     
     func adjustUITextViewHeight(arg : UITextView){
         
